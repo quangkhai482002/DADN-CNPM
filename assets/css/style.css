@@ -101,6 +101,10 @@
   display: flex;
   height: 42px;
 }
+.phankhu-1{
+  display: flex;
+  height: 30px;
+}
 
 .dropdown {
   --max-scroll: 8;
@@ -140,6 +144,9 @@ select.dropdown {
   font-weight: 600;
   text-align: center;
 }
+
+
+
 
 
 
@@ -667,5 +674,135 @@ ___________________________________________________________ */
 
 
 
+ /* ------------------------------------------------------------
+---------------------------Trang chu-------------------------------
+------------------------------------------------------------ */
 
 
+  .displayData-container{
+    padding: 0 50px;
+    margin-top: 50px;
+    display: flex;
+    height: 100%;
+}
+
+.displayData{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(220, 251, 255);
+    height: 120px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.displayData-1{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgb(220, 251, 255);
+    height: 60px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.data-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.AS {
+    border-radius: 30px;
+    background-color: #FCC43E;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+}
+.ND {
+    border-radius: 30px;
+    background-color: #2bb794;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+}
+.DA {
+    border-radius: 30px;
+    background-color: #3ea3fc;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+}
+.DAD {
+    border-radius: 30px;
+    background-color: #6d3d07;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+}
+  .weather-icon{
+    width: 35px;
+    
+}
+
+.data-name{
+    color: #635973;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+.data-val{
+    margin-top: 10px;
+    color: #303972;
+    font-size: 22px;
+}
+
+.dataTitle{
+  color: #2d243b;
+}
+
+.dropdown-1 {
+  --max-scroll: 8;
+  --text: #00337c;
+  --border: #00337c;
+  --borderActive: #23C4F8;
+  --background: #fff;
+  --arrow: #99A3BA;
+  --arrowActive: #6C7486;
+  --listText: #99A3BA;
+  --listBackground: #a47a7a;
+  --listActive: #F5F9FF;
+  --listTextActive: #656565;
+  --listBorder: #E4ECFA;
+  --textFilled: #6C7486;
+  width: 150px;
+  position: relative;
+}
+.dropdown-1 select {
+  display: none;
+}
+
+
+select {
+  --text: #000000;
+  --border: #2F3545;
+  --background: #151924;
+}
+select.dropdown-1 {
+  padding: 3px 10px;
+  border-radius: 20px;
+  color: var(--text);
+  border: 1px solid #2267b7;
+  background: rgb(220, 251, 255);
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: 500;
+  text-align: center;
+}
