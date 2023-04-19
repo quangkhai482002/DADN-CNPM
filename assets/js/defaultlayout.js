@@ -30,7 +30,13 @@ $(document).ready(function(){
     
   });
 
+// ---------------------avatar click--------------------------
 
+
+  function toggleAccountOption() {
+    var AccountOption = document.getElementById("AccountOption");
+    AccountOption.style.display = (AccountOption.style.display === "none") ? "block" : "none";
+}
 
 // ---------------------control-item--------------------------
 

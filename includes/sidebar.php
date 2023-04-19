@@ -28,8 +28,8 @@
 
         <li class="divider"></li>
 
-        <a href="index.php?option=home.php&tuychon=settings.php">
-          <li class="menu-item"><i class="icon fas fa-bell mr-5"></i>Cài đặt</li>
+        <a href="index.php?option=home.php&tuychon=managedevice.php">
+          <li class="menu-item"><i class="icon fas fa-bell mr-5"></i>Quản lí thiết bị</li>
         </a>
       </ul>
     </div>

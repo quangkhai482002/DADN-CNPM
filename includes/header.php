@@ -36,8 +36,14 @@
       </div>
 
 
-      <img class="user-avatar" src="https://i.pinimg.com/736x/6c/22/e3/6c22e3e5685c422a6e6d7a013139472d.jpg"
-        alt="shizuka" />
+      <img onclick="toggleAccountOption()" class="user-avatar" src="https://i.pinimg.com/736x/6c/22/e3/6c22e3e5685c422a6e6d7a013139472d.jpg"
+            alt="shizuka" />
+
+            <ul id="AccountOption" class="AccountOption">
+              <li><a href="index.php?option=profile.php">Thông tin cá nhân</a></li>
+              <li><a href="#"><i class="icon fas fa-sign-out-alt"></i>Đăng xuất</a></li>
+            </ul>
+  
     </div>
   </div>
 </div>

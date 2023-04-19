@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/grid.css" />
-    <link rel="stylesheet" href="assets/css/defaultlayout.css" />
-    <title>Lịch hoạt động đèn</title>
-</head>
-
-<body>
-
-
-<div class="wrapper">
-
-<?php include_once("includes/header.php"); ?>
-
-<div class="container">
-
-<?php include_once("includes/sidebar.php"); ?>
-
-    <div class="content">
     <H2 class="title">QUẢN LÍ THIẾT BỊ</H2>
 
 <div class="addbtn">
@@ -100,16 +73,4 @@
   
 </div>
 
-    </div>
-
-
-</div>
-</div>
-
-<script src="assets/css/defaultlayout.js"></script>
-<script src="assets/css/controlitem.js"></script>
-
-
-</body>
-
-</html>
+    

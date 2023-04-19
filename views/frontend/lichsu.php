@@ -36,7 +36,7 @@ $result = mysqli_query($conn, $sql);
                     }
                 }
                 ?>
-                <input type="submit" name="" value="show">
+                <input class="showbtn" type="submit" name="" value="chọn">
             </select>
         </div>
         </form>

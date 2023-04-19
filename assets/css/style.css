@@ -97,7 +97,7 @@
 
 .phankhu{
   margin-top: 60px;
-  margin-left: 700px;
+  margin-left: 590px;
   display: flex;
   height: 42px;
 }
@@ -616,6 +616,19 @@ ___________________________________________________________ */
   display: flex;
   justify-content: center;
   margin-left: 85%;
+}
+
+.showbtn{
+  margin-left: 20px;
+  background-color:#00337c;
+  text-decoration:none;
+  color:white;
+  border:1px solid white;
+  padding:10px;
+  border-radius:15px;
+  width: 80px;
+  font-size: 15px;
+  font-weight: 600;
 }
 
 .manageDevice-container {

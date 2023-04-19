@@ -57,7 +57,7 @@
                     </div>
 
                     <div class="c-6">
-                    <a href="index.php?option=managedevice.php">
+                    <a href="index.php?option=home.php&tuychon=managedevice.php">
                         <div class="form-group">
                             <div class="modal_btn-1">
                                 <button class="update_btn" name="new_update" id="new_update" data-toggle="modal">Quay lại</button>
