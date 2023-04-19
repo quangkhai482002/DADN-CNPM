@@ -568,6 +568,11 @@ ___________________________________________________________ */
 	display: flex;
 	justify-content: flex-end;
 }
+
+.modal_btn-1{
+	display: flex;
+	justify-content: flex-start;
+}
 .update_btn {
     display: inline-block;
     font-weight: 400;

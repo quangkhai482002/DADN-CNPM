@@ -29,7 +29,7 @@
     <H2 class="title">QUẢN LÍ THIẾT BỊ</H2>
 
 <div class="addbtn">
-  <a href="">Thêm thiết bị</a>
+  <a href="index.php?option=addDevice.php">Thêm thiết bị</a>
 </div>
 <div class="manageDevice-container">
 
@@ -51,7 +51,7 @@
         <td>110</td>
         <td>1.8%</td>
         <td>Vi tri 1</td>
-        <td><a href="">Edit</td>
+        <td><a href="index.php?option=editDevice.php">Edit</a></td>
         <td><a href="">Delete</td>
         
       </tr>
@@ -91,7 +91,7 @@
         <td>460</td>
         <td>4.6%</td>
         <td>11.5</td>
-        <td><a href="">Edit</td>
+        <td><a href="index.php?option=editDevice.php">Edit</a></td>
           <td><a href="">Delete</td>
 
       </tr>
