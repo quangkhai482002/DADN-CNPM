@@ -118,8 +118,8 @@ $result = mysqli_query($conn, $sql);
                         </div>
     
                         <ul id="editSchedule" class="editSchedule">
-                          <li><a href="index.php?option=edit-schedule.php&id=<?php echo $row['device_id'] ?>">Chỉnh sửa</a></li>
-                          <li><a href="index.php?option=edit-schedule.php&id=<?php echo $row['device_id'] ?>">Xóa</a></li>
+                          <li><a href="index.php?option=edit-schedule-2.php&id=<?php echo $row['device_id'] ?>">Chỉnh sửa</a></li>
+                          <li><a href="index.php?option=edit-schedule-2.php&id=<?php echo $row['device_id'] ?>">Xóa</a></li>
                         </ul>
                     </div>
                     

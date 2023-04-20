@@ -97,7 +97,7 @@ if (isset($_POST["edit"])) {
                     </div>
 
                     <div class="c-6">
-                    <a href="index.php?option=lichhdden.php">
+                    <a href="index.php?option=lichhdmaybom.php">
                         <div class="form-group">
                             <div class="modal_btn-1">
                                 <button class="update_btn" name="new_update" id="new_update" data-toggle="modal">Quay lại</button>
