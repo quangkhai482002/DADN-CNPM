@@ -8,6 +8,9 @@
         }
     },
     "require": {
-        "illuminate/database": "*"
+        "illuminate/database": "*",
+        "cboden/ratchet": "v0.4",
+        "php-mqtt/client": "^1.8",
+        "bluerhinos/phpmqtt": "^1.0"
     }
 }
