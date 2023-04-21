@@ -41,7 +41,7 @@
 
             <ul id="AccountOption" class="AccountOption">
               <li><a href="index.php?option=profile.php">Thông tin cá nhân</a></li>
-              <li><a href="#"><i class="icon fas fa-sign-out-alt"></i>Đăng xuất</a></li>
+              <li><a href="#"><i class="icon fas fa-sign-out-alt" style="color: #ff0000;"></i>Đăng xuất</a></li>
             </ul>
   
     </div>

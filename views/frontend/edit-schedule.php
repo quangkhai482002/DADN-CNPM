@@ -40,47 +40,27 @@ if (isset($_POST["edit"])) {
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../img/favicon.ico">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link rel="stylesheet" href="style.css">
-    <title> Edit Schedule</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: var(--bs-body-font-family);
-            font-size: var(--bs-body-font-size);
-            font-weight: var(--bs-body-font-weight);
-            line-height: var(--bs-body-line-height);
-            color: var(--bs-body-color);
-            text-align: var(--bs-body-text-align);
-            background-color: var(--bs-body-bg);
-            -webkit-text-size-adjust: 100%;
-            -webkit-tap-highlight-color: transparent;
-            margin: 30px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/grid.css" />
+    <link rel="stylesheet" href="assets/css/defaultlayout.css" />
+    <title>Lịch hoạt động đèn</title>
 
 </head>
 
 
 <body?>
 
+<div class="wrapper">
 
-    <h3> Edit Schedule</h3>
-    <form method="post" action="">
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">ID</label>
-            <input type="integer" value="<?php
-                                            echo $rows['device_id']
-                                            ?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="id">
+<?php include_once("includes/header.php"); ?>
 
-        </div>
-        <div class="mb-3">
+<div class="container">
 
             <!-- <input type="time" value="<?php
                                             //  echo $rows['name'] 
@@ -97,10 +77,14 @@ if (isset($_POST["edit"])) {
             <input type="time" id="time1" value="09:12" name="time_end">
         </div>
 
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary" name="edit">Submit</button>
-    </form>
-    </body>
+    </div>
+
+
+</div>
+</div>
+
+<script src="assets/css/defaultlayout.js"></script>
+<script src="assets/css/controlitem.js"></script>
+
+
+</body>
