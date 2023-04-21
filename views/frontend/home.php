@@ -1,6 +1,6 @@
-<?php 
-    session_start();
-    
+<?php
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,21 +19,29 @@
 </head>
 
 <body>
- <?php 
-//  echo "hello ". $_SESSION['user_name'] 
- ?>
+    <?php
+    //  echo "hello ". $_SESSION['user_name'] 
+    ?>
 
-<div class="wrapper">
-    <?php include_once("includes/header.php"); ?>
+    <div class="wrapper">
+        <?php include_once("includes/header.php"); ?>
 
-    <div class="container">
-        <?php include_once("includes/sidebar.php"); ?>
+        <div class="container">
+            <?php include_once("includes/sidebar.php"); ?>
 
-        <div class="content">
-            <?php include_once($_GET['tuychon']) ;?>
+            <div class="content">
+                <?php
+                // include_once($_GET['tuychon']); 
+                if (isset($_GET['tuychon'])) {
+                    $tuychon = $_GET['tuychon'];
+                    include_once($tuychon);
+                } else {
+                    // Xử lý trường hợp không có giá trị 'tuychon' trong $_GET
+                }
+                ?>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
 

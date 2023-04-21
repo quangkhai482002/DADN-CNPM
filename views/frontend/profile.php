@@ -1,3 +1,16 @@
+<?php if (!isset($_SESSION)) {
+    session_start();
+} ?>
+
+<?php
+$a = $_SESSION['user_name'];
+include "./includes/config.php";
+$sql = "SELECT distinct * FROM `user` where 
+user.user_name= '$a' ";
+$result = mysqli_query($conn, $sql);
+$rows = mysqli_fetch_assoc($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +24,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/grid.css" />
     <link rel="stylesheet" href="assets/css/defaultlayout.css" />
-    <title>Lịch hoạt động đèn</title>
+    <title>Profile</title>
 </head>
 
 <body>
@@ -34,31 +47,31 @@
                     <div class="c-12">
                         <div class="form-group">
                             <label class = "prf_title">Họ và tên:</label>
-                            <input name="fname" class="form-control" type="text" required="true" autocomplete="off" value="?php echo $row">
+                            <input name="fname" class="form-control" type="text" required="true" autocomplete="off" value="<?php echo $rows['user_name'] ?>">
                         </div>
                     </div>
                     <div class="c-12">
                         <div class="form-group">
                             <label class = "prf_title">Email:</label>
-                            <input name="email" class="form-control" type="text" placeholder="" required="true" autocomplete="off" value="?php echo $row">
+                            <input name="email" class="form-control" type="text" placeholder="" required="true" autocomplete="off" value="<?php echo $rows['email'] ?>">
                         </div>
                     </div>
                     <div class="c-12">
                         <div class="form-group">
                             <label class = "prf_title">Số điện thoại:</label>
-                            <input name="phonenumber" class="form-control" type="text" placeholder="" required="true" autocomplete="off" value="?php echo $row">
+                            <input name="phonenumber" class="form-control" type="text" placeholder="" required="true" autocomplete="off" value="<?php echo $rows['phone'] ?>">
                         </div>
                     </div>
                     <div class="c-12">
                         <div class="form-group">
                             <label class = "prf_title">Địa chỉ:</label>
-                            <input name="dob" class="form-control" type="text" placeholder="" required="true" autocomplete="off" value="?php echo $row">
+                            <input name="dob" class="form-control" type="text" placeholder="" required="true" autocomplete="off" value="<?php echo $rows['address'] ?>">
                         </div>
                     </div>
                     <div class="c-12">
                         <div class="form-group">
                             <label class = "prf_title">CMND/CCCD:</label>
-                            <input name="address" class="form-control" type="text" placeholder="" required="true" autocomplete="off" value="?php echo $row">
+                            <input name="address" class="form-control" type="text" placeholder="" required="true" autocomplete="off" value="<?php echo $rows['CCCD'] ?>">
                         </div>
                     </div>
 

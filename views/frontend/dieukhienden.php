@@ -11,6 +11,56 @@ $result = mysqli_query($conn, $sql);
 
 
 ?>
+<?php
+require('vendor/autoload.php');
+
+use \PhpMqtt\Client\MqttClient;
+use \PhpMqtt\Client\ConnectionSettings;
+
+$server   = 'mqtt.ohstem.vn';
+$port     = 1883;
+$clientId = array(
+    "nhombaton/feeds/V1",
+    "nhombaton/feeds/V2",
+    "nhombaton/feeds/V3",
+    "nhombaton/feeds/V4",
+    "nhombaton/feeds/V10",
+    "nhombaton/feeds/V12",
+    "nhombaton/feeds/V13",
+    "nhombaton/feeds/V14",
+    "nhombaton/feeds/V15",
+    "nhombaton/feeds/V16"
+);
+$username = 'nhombaton';
+$password = '';
+$clean_session = false;
+$mqtt_version = MqttClient::MQTT_3_1_1;
+
+$connectionSettings = (new ConnectionSettings)
+
+    ->setUsername($username)
+    ->setPassword($password)
+    ->setKeepAliveInterval(6000) //Thời gian sống của chương trình, ở đây mình xét 6000s
+    ->setLastWillTopic('nhombaton/feeds/')
+    ->setLastWillMessage('client disconnect')
+    ->setLastWillQualityOfService(1);
+
+$mqtt = new MqttClient($server, $port, $clientId[0], $mqtt_version); // Sửa lại
+
+if (isset($_POST['submit'])) {
+    $input_data = strval($_POST['input_data']); // Chuyển đổi giá trị số sang chuỗi
+    $topic = 'nhombaton/feeds/V12';
+    $mqtt->connect($connectionSettings, $clean_session);
+    $mqtt->publish($topic, $input_data, 0, false);
+    require_once('connectDatabase.php');
+    $connect = Connect();
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $current_time = date('Y-m-d H:i:s');
+    $query = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '1', " . $input_data . ")";
+    $result = $connect->query($query);
+    printf("Data published to topic %s: %s\n", $topic, $input_data);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,113 +83,112 @@ $result = mysqli_query($conn, $sql);
 
 
 
-<div class="wrapper">
+    <div class="wrapper">
 
-<?php include_once("includes/header.php"); ?>
+        <?php include_once("includes/header.php"); ?>
 
-<div class="container">
+        <div class="container">
 
-<?php include_once("includes/sidebar.php"); ?>
+            <?php include_once("includes/sidebar.php"); ?>
 
-    <div class="content">
-        <H2 class="title">ĐIỀU KHIỂN ÁNH SÁNG</H2>
-        <p class="credit"> <i class="icon fas fa-calendar-week mr-5"></i> Điều khiển thiết bị <i
-                class="fas fa-caret-right mr-5"></i> Điều khiển đèn</p>
-        <form action="" method="POST">
-        <div class="phankhu">
-            <select class="dropdown" placeholder="Please choose" name="phankhu">
-            <?php
-                if (mysqli_num_rows($result) > 0) {
+            <div class="content">
+                <H2 class="title">ĐIỀU KHIỂN ÁNH SÁNG</H2>
+                <p class="credit"> <i class="icon fas fa-calendar-week mr-5"></i> Điều khiển thiết bị <i class="fas fa-caret-right mr-5"></i> Điều khiển đèn</p>
+                <form action="" method="POST">
+                    <div class="phankhu">
+                        <select class="dropdown" placeholder="Please choose" name="phankhu">
+                            <?php
+                            if (mysqli_num_rows($result) > 0) {
 
-                    while ($row = mysqli_fetch_assoc($result)) {
-                ?>
+                                while ($row = mysqli_fetch_assoc($result)) {
+                            ?>
 
-                        <option method="POST" type="submit">
+                                    <option method="POST" type="submit">
+
+                                        <?php
+                                        echo $row['subfarm_name']
+                                        ?>
+                                    </option>
+
 
                             <?php
-                            echo $row['subfarm_name']
+                                }
+                            }
                             ?>
-                        </option>
-
+                            <input class="showbtn" type="submit" name="" value="chọn">
+                        </select>
+                    </div>
+                </form>
 
                 <?php
-                    }
+                $b = null;
+                if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    $b = $_POST['phankhu'];
                 }
                 ?>
-                <input class="showbtn" type="submit" name="" value="chọn">
-            </select>
-        </div>
-        </form>
-
-        <?php
-            $b = null;
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $b = $_POST['phankhu'];
-            }
-            ?>
-        <?php
-            $dv = "SELECT distinct * FROM `user`, `farm`, `subfarm`,`device` where 
+                <?php
+                $dv = "SELECT distinct * FROM `user`, `farm`, `subfarm`,`device` where 
                 user.user_name= '$a' and user.user_id=farm.user_id and farm.farm_id=subfarm.farm_id 
                 and subfarm.subfarm_name= '$b'and subfarm.subfarm_id=device.subfarm_id and device.device_name='den'
                 ";
-            $result_dv = mysqli_query($conn, $dv);
-            ?>
+                $result_dv = mysqli_query($conn, $dv);
+                ?>
 
-        <div class="dev-control-container">
-            <div class="grid">
-                <div class="row">
-                <?php
-                    if (mysqli_num_rows($result) > 0) {
+                <div class="dev-control-container">
+                    <div class="grid">
+                        <div class="row">
+                            <?php
+                            if (mysqli_num_rows($result) > 0) {
 
-                        while ($row = mysqli_fetch_assoc($result_dv)) {
-                    ?>
-                    <div class="dev-control c-6">
-                        <div class="dev-control-content-container">
-                            <div class="dev-control-content">
-                                <div class="Den"></div>
-                                <div class="dev-text">
-                                    <b class="dev-name">Điều khiển Đèn</b>
-                                    <div class="dev-code" ><?php echo "#" . $row['device_id'] ?></div>
-                                </div>
-                            </div>
-                            <div class="control-content">
-                            <p style="font-weight: bold;">Mức:</p>
-                            <div class="slider-content">
-                                <input type="range" min="0" max="10" step="1" value="0">
-                            <div class="value">0</div>
-                            </div>
+                                while ($row = mysqli_fetch_assoc($result_dv)) {
+                            ?>
+                                    <div class="dev-control c-6">
+                                        <div class="dev-control-content-container">
+                                            <div class="dev-control-content">
+                                                <div class="Den"></div>
+                                                <div class="dev-text">
+                                                    <b class="dev-name">Điều khiển Đèn</b>
+                                                    <div class="dev-code"><?php echo "#" . $row['device_id'] ?></div>
+                                                </div>
+                                            </div>
+                                            <div class="control-content">
+                                                <p style="font-weight: bold;">Mức:</p>
+                                                <div class="slider-content">
+                                                    <input type="range" min="0" max="10" step="1" value="0">
+                                                    <div class="value">10</div>
+                                                </div>
 
-                            
-                            <form action="" method="POST">
-                            <label class="switch">
-                                <input type="checkbox">
-                                <div>
-                                    <span></span>
-                                </div>
-                            </label>
-                            </form>
-                            </div>
+
+                                                <form action="" method="POST">
+                                                    <label class="switch">
+                                                        <input type="checkbox">
+                                                        <div>
+                                                            <span></span>
+                                                        </div>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                            <?php }
+                            } ?>
+
+
+
                         </div>
-                        
-
                     </div>
-                    <?php }
-                                    } ?>
-
-                    
-                    
                 </div>
-            </div>
-        </div>
 
+            </div>
+
+
+        </div>
     </div>
 
-
-</div>
-</div>
-
-<script src="assets/css/defaultlayout.js"></script>
-<script src="assets/css/controlitem.js"></script>
+    <script src="assets/css/defaultlayout.js"></script>
+    <script src="assets/css/controlitem.js"></script>
 
 
 </body>

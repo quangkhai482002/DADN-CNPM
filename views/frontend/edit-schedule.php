@@ -86,7 +86,7 @@ if (isset($_POST["edit"])) {
                                             //  echo $rows['name'] 
                                             ?>" class="form-control" id="exampleInputPassword1" name="name"> -->
             <label for="exampleInputEmail1" class="form-label">From:</label><br>
-            <input type="time" id="time1" value="09:12"  name="time_start">
+            <input type="time" id="time1" value="09:12" name="time_start">
         </div>
         <div class="mb-3">
 
@@ -94,7 +94,7 @@ if (isset($_POST["edit"])) {
                                             //  echo $rows['name'] 
                                             ?>" class="form-control" id="exampleInputPassword1" name="name"> -->
             <label for="exampleInputEmail1" class="form-label">To:</label><br>
-            <input type="time" id="time1" value="09:12"  name="time_end">
+            <input type="time" id="time1" value="09:12" name="time_end">
         </div>
 
         <div class="mb-3 form-check">

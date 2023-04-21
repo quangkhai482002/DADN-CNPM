@@ -46,8 +46,8 @@
 session_start();
 include "./includes/config.php";
 if (isset($_POST['login']) == true) {
-	$username = mysqli_real_escape_string($conn,$_POST['username']);
-	$password = mysqli_real_escape_string($conn,$_POST['password']);
+	$username = mysqli_real_escape_string($conn, $_POST['username']);
+	$password = mysqli_real_escape_string($conn, $_POST['password']);
 	// if (empty($username)) {
 	// 	array_push($errors, "Username is required");
 	// }
@@ -58,18 +58,17 @@ if (isset($_POST['login']) == true) {
 	// echo "<p> $username $password</p>";
 	$sql = "SELECT * FROM user where user_name ='$username' and password ='$password'";
 	$query = mysqli_query($conn, $sql);
-	$num_row= mysqli_num_rows($query);
+	$num_row = mysqli_num_rows($query);
 
 
-	if($num_row != 0){
-		$user = $query ->fetch_array();
-		$_SESSION['user_name']=$user['user_name'];
+	if ($num_row != 0) {
+		$user = $query->fetch_array();
+		$_SESSION['user_name'] = $user['user_name'];
 		// $_SESSION['id']=$user['id'];
 		// print_r($user);
 		header("location:index.php?option=home.php");
 		exit();
-	}
-	else{
+	} else {
 		header("location:index.php");
 		echo "Tài khoản hoặc mật khẩu không đúng";
 		exit();
@@ -152,8 +151,9 @@ if (isset($_POST['login']) == true) {
 							<div class="form-group text-center">
 								<a href="index.php?option=home">
 									<button class="btn btn-primary account-btn" name="login" type="submit">
-										<a href="index.php?option=home.php">Login
-										</a>
+										<!-- <a href="index.php?option=home.php"> -->
+										Login
+										<!-- </a> -->
 									</button>
 								</a>
 								<div class="col-auto pt-2">
