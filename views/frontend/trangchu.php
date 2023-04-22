@@ -17,7 +17,14 @@
                   <div class="AS"><img class="weather-icon" alt="" src="assets/svg/Sun 2.svg" /></div>
                   <div class="dev-text">
                     <b class="data-name">ÁNH SÁNG</b>
-                    <b class="data-val">100*C</b>
+                    <b class="data-val"><?php
+                    require_once('connectDatabase.php');
+                    $connect = Connect();
+                    $result = $connect->query("SELECT data FROM statistic WHERE action_time = (SELECT MAX(action_time) FROM statistic WHERE device_id = 3);");
+                    while ($row = $result->fetch_assoc()) {
+                        echo  $row["data"];
+                    }   
+                    ?> %</b>
                   </div>
                 </div>
 
@@ -25,7 +32,14 @@
                     <div class="ND"><img class="weather-icon" alt="" src="assets/svg/Temperature.svg" /></div>
                     <div class="dev-text">
                       <b class="data-name">NHIỆT ĐỘ</b>
-                      <b class="data-val">100*C</b>
+                      <b class="data-val"><?php
+                    require_once('connectDatabase.php');
+                    $connect = Connect();
+                    $result = $connect->query("SELECT data FROM statistic WHERE action_time = (SELECT MAX(action_time) FROM statistic WHERE device_id = 4);");
+                    while ($row = $result->fetch_assoc()) {
+                        echo  $row["data"];
+                    }   
+                    ?> *C</b>
                     </div>
                   </div>
 
@@ -33,7 +47,14 @@
                     <div class="DA"><img class="weather-icon" alt="" src="assets/svg/Waterdrops.svg" /></div>
                     <div class="dev-text">
                       <b class="data-name">ĐỘ ẨM</b>
-                      <b class="data-val">100%</b>
+                      <b class="data-val"><?php
+                    require_once('connectDatabase.php');
+                    $connect = Connect();
+                    $result = $connect->query("SELECT data FROM statistic WHERE action_time = (SELECT MAX(action_time) FROM statistic WHERE device_id = 5);");
+                    while ($row = $result->fetch_assoc()) {
+                        echo  $row["data"];
+                    }   
+                    ?> %</b>
                     </div>
                   </div>
                   
@@ -41,7 +62,14 @@
                     <div class="DAD"><img class="weather-icon" alt="" src="assets/svg/Waterdrops-1.svg" /></div>
                     <div class="dev-text">
                       <b class="data-name">ĐỘ ÂM ĐẤT</b>
-                      <b class="data-val">100%</b>
+                      <b class="data-val"><?php
+                    require_once('connectDatabase.php');
+                    $connect = Connect();
+                    $result = $connect->query("SELECT data FROM statistic WHERE action_time = (SELECT MAX(action_time) FROM statistic WHERE device_id = 6);");
+                    while ($row = $result->fetch_assoc()) {
+                        echo  $row["data"];
+                    }   
+                    ?> %</b>
                     </div>
                   </div>
               </div>
@@ -50,3 +78,11 @@
             </div>
           </div>
         </div>
+        <script>
+           init_reload();
+          function init_reload(){
+              setInterval( function(){
+                  window.location.reload();
+              },5000);
+          }
+        </script>

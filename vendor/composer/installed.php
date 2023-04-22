@@ -3,7 +3,7 @@
         'name' => 'da/farm',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'b6cce8753ae50f44e3642747da67c01aa88723aa',
+        'reference' => '3a7352a4226b57b5d62611f67e2dae1e3cffe582',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -40,7 +40,7 @@
         'da/farm' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'b6cce8753ae50f44e3642747da67c01aa88723aa',
+            'reference' => '3a7352a4226b57b5d62611f67e2dae1e3cffe582',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

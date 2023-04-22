@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
-
+    
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/grid.css" />
     <link rel="stylesheet" href="assets/css/defaultlayout.css" />
@@ -86,7 +86,7 @@ if (isset($_POST['submit'])) {
     <div class="wrapper">
 
         <?php include_once("includes/header.php"); ?>
-
+    
         <div class="container">
 
             <?php include_once("includes/sidebar.php"); ?>
@@ -154,8 +154,25 @@ if (isset($_POST['submit'])) {
                                             <div class="control-content">
                                                 <p style="font-weight: bold;">Mức:</p>
                                                 <div class="slider-content">
-                                                    <input type="range" min="0" max="10" step="1" value="0">
-                                                    <div class="value">10</div>
+                                                <form method="post" id="mqtt-form">
+                                                    <input type="range" name="input_data" min="0" max="100" value="<?php
+                                                        require_once('connectDatabase.php');
+                                                        $connect = Connect();
+                                                        $result = $connect->query("SELECT data FROM statistic WHERE action_time = (SELECT MAX(action_time) FROM statistic);");
+                                                        while ($row = $result->fetch_assoc()) {
+                                                            echo  $row["data"];
+                                                        }   
+                                                        ?>"> 
+                                                    <div class="value"><?php
+                                                        require_once('connectDatabase.php');
+                                                        $connect = Connect();
+                                                        $result = $connect->query("SELECT data FROM statistic WHERE action_time = (SELECT MAX(action_time) FROM statistic);");
+                                                        while ($row = $result->fetch_assoc()) {
+                                                            echo  $row["data"];
+                                                        }   
+                                                        ?></div>
+                                                    <button type="submit" name="submit">Send</button>
+                                                    </form>
                                                 </div>
 
 
