@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `device` (
   `device_id` int(11) NOT NULL,
   `subfarm_id` int(11) NOT NULL,
-  `device_name` enum('den','bom nuoc','cam bien anh sang','cam bien nhiet do', 'do am','cam bien do am dat') DEFAULT NULL,
+  `device_name` enum('den','bom nuoc','cam bien anh sang','cam bien nhiet do', 'do am','cam bien do am dat','che do') DEFAULT NULL,
   `device_type` enum('input device','output device') DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
   `status` enum('0','1') DEFAULT NULL
@@ -46,7 +46,8 @@ INSERT INTO `device` (`device_id`, `subfarm_id`, `device_name`, `device_type`, `
 (3, 1, 'cam bien anh sang', 'input device', '', '0'),
 (4, 1, 'cam bien nhiet do', 'input device', '', '0'),
 (5, 1, 'do am', 'input device', '', '0'),
-(6, 1, 'cam bien do am dat', 'input device', '', '0');
+(6, 1, 'cam bien do am dat', 'input device', '', '0'),
+(7, 1, 'che do', 'input device', '', '0');
 
 -- --------------------------------------------------------
 

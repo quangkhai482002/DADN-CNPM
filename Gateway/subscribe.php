@@ -99,6 +99,12 @@ $current_time = date('Y-m-d H:i:s');
 });
 $mqtt->subscribe('nhombaton/feeds/V14', function($topic, $message) {
   echo "Received message on topic $topic: $message\n";
+  require_once('connectDatabase.php');
+  $connect = Connect();
+  date_default_timezone_set('Asia/Ho_Chi_Minh');
+$current_time = date('Y-m-d H:i:s');
+  $light = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '7', " . $message . ")"; //Đèn
+  $connect->query($light);
   sleep(1);
 });
 $mqtt->subscribe('nhombaton/feeds/V15', function($topic, $message) {
