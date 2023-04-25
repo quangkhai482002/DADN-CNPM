@@ -49,7 +49,7 @@ $mqtt->subscribe('nhombaton/feeds/V1', function($topic, $message) {
   $connect = Connect();
   date_default_timezone_set('Asia/Ho_Chi_Minh');
   $current_time = date('Y-m-d H:i:s');
-  $temp = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '6', " . $message . ")"; //Đèn
+  $temp = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '4', " . $message . ")"; //Đèn
   $connect->query($temp);
   sleep(1);
 });
@@ -69,7 +69,7 @@ $mqtt->subscribe('nhombaton/feeds/V3', function($topic, $message) {
   $connect = Connect();
   date_default_timezone_set('Asia/Ho_Chi_Minh');
 $current_time = date('Y-m-d H:i:s');
-  $sand = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '3', " . $message . ")"; //Đèn
+  $sand = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '6', " . $message . ")"; //Đèn
   $connect->query($sand);
   sleep(1);
 });
@@ -79,18 +79,12 @@ $mqtt->subscribe('nhombaton/feeds/V4', function($topic, $message) {
   $connect = Connect();
   date_default_timezone_set('Asia/Ho_Chi_Minh');
 $current_time = date('Y-m-d H:i:s');
-  $light = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '4', " . $message . ")"; //Đèn
+  $light = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '3', " . $message . ")"; //Đèn
   $connect->query($light);
   sleep(1);
 });
 $mqtt->subscribe('nhombaton/feeds/V12', function($topic, $message) {
   echo "Received message on topic $topic: $message\n";
-  require_once('connectDatabase.php');
-  $connect = Connect();
-  date_default_timezone_set('Asia/Ho_Chi_Minh');
-  $current_time = date('Y-m-d H:i:s');
-  $led = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '2', " . $message . ")"; //Đèn
-  $connect->query($led);
   sleep(1);
 });
 $mqtt->subscribe('nhombaton/feeds/V13', function($topic, $message) {
@@ -99,12 +93,18 @@ $mqtt->subscribe('nhombaton/feeds/V13', function($topic, $message) {
   $connect = Connect();
   date_default_timezone_set('Asia/Ho_Chi_Minh');
 $current_time = date('Y-m-d H:i:s');
-  $led = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '2', " . $message . ")"; //Đèn
+  $led = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '1', " . $message . ")"; //Đèn
   $connect->query($led);
   sleep(1);
 });
 $mqtt->subscribe('nhombaton/feeds/V14', function($topic, $message) {
   echo "Received message on topic $topic: $message\n";
+  require_once('connectDatabase.php');
+  $connect = Connect();
+  date_default_timezone_set('Asia/Ho_Chi_Minh');
+$current_time = date('Y-m-d H:i:s');
+  $light = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '7', " . $message . ")"; //Đèn
+  $connect->query($light);
   sleep(1);
 });
 $mqtt->subscribe('nhombaton/feeds/V15', function($topic, $message) {
@@ -113,18 +113,12 @@ $mqtt->subscribe('nhombaton/feeds/V15', function($topic, $message) {
   $connect = Connect();
   date_default_timezone_set('Asia/Ho_Chi_Minh');
   $current_time = date('Y-m-d H:i:s');
-  $pump = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '1', " . $message . ")"; //Đèn
+  $pump = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '2', " . $message . ")"; //Đèn
   $connect->query($pump);
   sleep(1);
 });
 $mqtt->subscribe('nhombaton/feeds/V16', function($topic, $message) {
   echo "Received message on topic $topic: $message\n";
-  require_once('connectDatabase.php');
-  $connect = Connect();
-  date_default_timezone_set('Asia/Ho_Chi_Minh');
-  $current_time = date('Y-m-d H:i:s');
-  $pump = "INSERT INTO `statistic` (action_time, device_id, data) VALUES ('" . $current_time . "', '1', " . $message . ")"; //Đèn
-  $connect->query($pump);
   sleep(1);
 });
 $mqtt->loop(true); 
