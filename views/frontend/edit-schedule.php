@@ -62,19 +62,60 @@ if (isset($_POST["edit"])) {
 
 <div class="container">
 
-            <!-- <input type="time" value="<?php
-                                            //  echo $rows['name'] 
-                                            ?>" class="form-control" id="exampleInputPassword1" name="name"> -->
-            <label for="exampleInputEmail1" class="form-label">From:</label><br>
-            <input type="time" id="time1" value="09:12" name="time_start">
-        </div>
-        <div class="mb-3">
+<?php include_once("includes/sidebar.php"); ?>
 
-            <!-- <input type="time" value="<?php
-                                            //  echo $rows['name'] 
-                                            ?>" class="form-control" id="exampleInputPassword1" name="name"> -->
-            <label for="exampleInputEmail1" class="form-label">To:</label><br>
-            <input type="time" id="time1" value="09:12" name="time_end">
+    <div class="content">
+        <H2 class="title">Chỉnh Sửa Lịch Hoạt Động</H2>
+        <div class="device-container">
+          <div class="grid">
+            <div class="row">
+
+                    <div class="c-12">
+                        <div class="form-group">
+                            <label class = "prf_title">Mã thiết bị:</label>
+                            <input name="id" id="exampleInputEmail1" class="form-control" type="integer" required="true" autocomplete="off" value="<?php echo $rows['device_id']?>">
+                        </div>
+                    </div>
+                    <div class="c-6">
+                        <div class="form-group">
+                            <label class = "prf_title">From:</label>
+                            <input name="time_start" id="time1" class="form-control-1" type="time" placeholder="" required="true" autocomplete="off" value="09:12">
+                        </div>
+                    </div>
+                    <div class="c-6">
+                        <div class="form-group">
+                            <label class = "prf_title">To:</label>
+                            <input name="time_end" id="time1" class="form-control-1" type="time" placeholder="" required="true" autocomplete="off" value="09:12">
+                        </div>
+                    </div>
+                    <div class="c-12">
+                        <div class="form-check-label">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label for="exampleCheck1">Check me out</label>
+                        </div>
+                        
+                    </div>
+
+                    <div class="c-6">
+                    <a href="index.php?option=lichhdden.php">
+                        <div class="form-group">
+                            <div class="modal_btn-1">
+                                <button class="update_btn" name="new_update" id="new_update" data-toggle="modal">Quay lại</button>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                    <div class="c-6">
+                        <div class="form-group">
+                            <div class="modal_btn">
+                                <button class="update_btn" name="new_update" id="new_update" data-toggle="modal">Lưu &&nbsp;Cập nhật</button>
+                            </div>
+                        </div>
+                    </div>
+                
+              
+            </div>
+          </div>
         </div>
 
     </div>
