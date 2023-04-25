@@ -270,7 +270,33 @@ select.dropdown {
   padding-left:2px;
 }
 
+.background13,
+.statuscolor-1 {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #e8fffb;
+  width: 380px;
+  height: 60px;
+}
+.statuscolor-1 {
+  border-radius: 20px 0 0 20px;
+  background-color: #03c988;
+  width: 24px;
+}
 
+.background13:hover{
+  background-color: #cafff9;
+}
+  
+.chiu-sng-bui-1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 110px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #303972;
+}
 /* ------------------------------------------------------------
 -------------------------control item--------------------------
 ------------------------------------------------------------ */

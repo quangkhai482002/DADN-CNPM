@@ -1,5 +1,18 @@
+<?php if (!isset($_SESSION)) {
+  session_start();
+} ?>
 
-    <H2 class="title">QUẢN LÍ THIẾT BỊ</H2>
+<?php
+$a = $_SESSION['user_name'];
+include "./includes/config.php";
+$sql = "SELECT distinct * FROM `user`, `farm`, `subfarm`,`device` where 
+user.user_name= '$a' and user.user_id=farm.user_id and farm.farm_id=subfarm.farm_id 
+and subfarm.subfarm_id=device.subfarm_id ;
+";
+$result = mysqli_query($conn, $sql);
+
+?>
+<H2 class="title">QUẢN LÍ THIẾT BỊ</H2>
 
 <div class="addbtn">
   <a href="index.php?option=addDevice.php">Thêm thiết bị</a>
@@ -12,65 +25,35 @@
         <th><span>Mã thiết bị</span></th>
         <th><span>Tên thiết bị</span></th>
         <th><span>Tên phân khu</span></th>
-        <th><span>Loại thiết bị</span></th>
+        
         <th><span>Vị trí</span></th>
         <th colspan="2"></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>6,000</td>
-        <td class="lalign">silly tshirts</td>
-        <td>110</td>
-        <td>1.8%</td>
-        <td>Vi tri 1</td>
-        <td><a href="index.php?option=editDevice.php">Edit</a></td>
-        <td><a href="">Delete</td>
-        
-      </tr>
-      <tr>
-        <td>2,200</td>
-        <td class="lalign">desktop workspace photos</td>
-        <td>500</td>
-        <td>22%</td>
-        <td>8.9</td>
-        <td><a href="">Edit</td>
-          <td><a href="">Delete</td>
+      <?php
+      if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+      ?>
+          <tr>
+            <td><?php echo $row['device_id'] ?></td>
+            <td class="lalign"><?php echo $row['device_name'] ?></td>
+            <td><?php echo $row['subfarm_name'] ?></td>
+            
+            <td><?php echo $row['location'] ?></td>
+            <td><a href="index.php?option=editDevice.php">Edit</a></td>
+            <td><a href="">Delete</td>
 
-      </tr>
-      <tr>
-        <td>13,500</td>
-        <td class="lalign">Cảm biến nhiệt độ, độ ẩm</td>
-        <td>900</td>
-        <td>6.7%</td>
-        <td>12.0</td>
-        <td><a href="">Edit</td>
-          <td><a href="">Delete</td>
+          </tr>
+      <?php
+        }
+      } ?>
 
-      </tr>
-      <tr>
-        <td>8,700</td>
-        <td class="lalign">popular web series</td>
-        <td>350</td>
-        <td>4%</td>
-        <td>7.0</td>
-        <td><a href="">Edit</td>
-          <td><a href="">Delete</td>
 
-      </tr>
-      <tr>
-        <td>9,900</td>
-        <td class="lalign">2013 webapps</td>
-        <td>460</td>
-        <td>4.6%</td>
-        <td>11.5</td>
-        <td><a href="index.php?option=editDevice.php">Edit</a></td>
-          <td><a href="">Delete</td>
 
-      </tr>
+
     </tbody>
   </table>
-  
-</div>
 
-    
+</div>
+<script src="assets/css/defaultlayout.js"></script>

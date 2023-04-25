@@ -122,11 +122,11 @@ if (isset($_POST['login']) == true) {
 
 				<div class="account-box">
 					<div class="account-wrapper">
-						<h3 class="account-title">Login</h3>
+						<h3 class="account-title">Đăng nhập</h3>
 						<!-- Account Form -->
 						<form method="POST" enctype="multipart/form-data">
 							<div class="form-group">
-								<label>User Name</label>
+								<label>Tên đăng nhập</label>
 								<input class="form-control" name="username" required type="text">
 							</div>
 							<?php
@@ -137,7 +137,7 @@ if (isset($_POST['login']) == true) {
 							<div class="form-group">
 								<div class="row">
 									<div class="col">
-										<label>Password</label>
+										<label>Mật khẩu</label>
 									</div>
 								</div>
 								<input class="form-control" name="password" required type="password">
@@ -152,20 +152,18 @@ if (isset($_POST['login']) == true) {
 								<a href="index.php?option=home">
 									<button class="btn btn-primary account-btn" name="login" type="submit">
 										<!-- <a href="index.php?option=home.php"> -->
-										Login
+										Đăng nhập
 										<!-- </a> -->
 									</button>
 								</a>
 								<div class="col-auto pt-2">
 									<a class="text-muted float-right" href="forgot-password.php">
-										Forgot password?
+										Quên mật khẩu?
 									</a>
 								</div>
 							</div>
 
-							<div class="account-footer">
-								<p>Having Trouble? report an issue on github <a target="https://github.com/MusheAbdulHakim/Smarthr---hr-payroll-project-employee-management-System/issues" href="https://github.com/MusheAbdulHakim/Smarthr---hr-payroll-project-employee-management-System/issues">Github issues</a></p>
-							</div>
+
 						</form>
 						<!-- /Account Form -->
 
