@@ -42,7 +42,7 @@ $result = mysqli_query($conn, $sql);
 
     <div class="content">
     <H2 class="title">LỊCH HOẠT ĐỘNG CỦA HỆ THỐNG NƯỚC</H2>
-        <p class="credit"> <i class="icon fas fa-ellipsis-v mr-5"></i> Lịch hoạt động <i
+        <p class="credit"> <i class="icon far fa-calendar-alt mr-5"></i> Lịch hoạt động <i
             class="fas fa-caret-right mr-5"></i> Hệ thống nước</p>
             <form action="" method="POST">
         <div class="phankhu">
