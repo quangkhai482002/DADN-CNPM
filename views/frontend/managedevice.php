@@ -41,8 +41,8 @@ $result = mysqli_query($conn, $sql);
             <td><?php echo $row['subfarm_name'] ?></td>
             
             <td><?php echo $row['location'] ?></td>
-            <td><a href="index.php?option=editDevice.php">Edit</a></td>
-            <td><a href="">Delete</td>
+            <td><a href="index.php?option=editDevice.php"><i class="fas fa-edit" style="color: #27e471;"></i></a></td>
+            <td><a href=""><i class="fas fa-trash-alt" style="color: #d10000;"></i></td>
 
           </tr>
       <?php
